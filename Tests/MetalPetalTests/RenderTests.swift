@@ -1074,6 +1074,7 @@ final class RenderTests: XCTestCase {
         }
     }
     
+    @available(iOS 10.0, *)
     func testCustomComputePipelineWithFunctionConstants() throws {
         let kernelSource = """
         #include <metal_stdlib>
@@ -1149,6 +1150,7 @@ final class RenderTests: XCTestCase {
         }
     }
     
+    @available(iOS 10.0, *)
     func testCustomRenderPipelineWithFunctionConstants() throws {
         var librarySource = ""
         let sourceFileDirectory = URL(fileURLWithPath: String(#file)).deletingLastPathComponent().appendingPathComponent("../../Sources/MetalPetalObjectiveC")
@@ -1483,6 +1485,7 @@ final class RenderTests: XCTestCase {
         }
     }
     
+    @available(iOS 10.0, *)
     func testWriteToDataBuffer() throws {
         let kernelSource = """
         #include <metal_stdlib>

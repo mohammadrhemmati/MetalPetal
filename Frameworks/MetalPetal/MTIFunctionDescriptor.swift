@@ -18,6 +18,13 @@ extension MTIFunctionDescriptor {
 }
 
 extension MTIFunctionDescriptor {
+    public convenience init(name: String, in bundle: Bundle) {
+        self.init(name: name, libraryURL: MTIDefaultLibraryURLForBundle(bundle))
+    }
+}
+
+@available(iOS 10, *)
+extension MTIFunctionDescriptor {
     public convenience init(name: String, constantValues: MTLFunctionConstantValues? = nil, in bundle: Bundle) {
         self.init(name: name, constantValues: constantValues, libraryURL: MTIDefaultLibraryURLForBundle(bundle))
     }

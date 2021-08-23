@@ -277,6 +277,7 @@ final class CGImageLoadingTests: XCTestCase {
         }
     }
     
+    @available(iOS 10.0, *)
     func testCGImageLoading_sRGB() throws {
         let context = try makeContext()
         
@@ -554,6 +555,7 @@ final class TextureLoaderImageLoadingTests: XCTestCase {
         }
     }
     
+    @available(iOS 10.0, *)
     func testURLImageLoading_grayColorSpace_orientations_flip() throws {
         let context = try makeContext()
         for orientation in 1...8 {
@@ -576,6 +578,7 @@ final class TextureLoaderImageLoadingTests: XCTestCase {
         }
     }
     
+    @available(iOS 10.0, *)
     func testURLImageLoading_grayColorSpace_mtkfallback_orientations() throws {
         let context = try makeContext()
         for orientation in 1...8 {
@@ -598,6 +601,7 @@ final class TextureLoaderImageLoadingTests: XCTestCase {
         }
     }
     
+    @available(iOS 10.0, *)
     func testURLImageLoading_grayColorSpace_mtkfallback_mipmap() throws {
         let context = try makeContext()
         let url = URL(fileURLWithPath: #file)

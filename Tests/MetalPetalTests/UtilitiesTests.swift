@@ -298,6 +298,7 @@ final class UtilitiesTests: XCTestCase {
         XCTAssert(MTIVector(value: SIMD4<Float>(repeating: randomFloat)).float3Value == SIMD3<Float>(randomFloat, randomFloat, randomFloat))
     }
     
+    @available(iOS 10.0, *)
     func testArgumentsEncoding_basic() throws {
         let kernelSource = """
         #include <metal_stdlib>
@@ -343,6 +344,7 @@ final class UtilitiesTests: XCTestCase {
         let _ = try context.makeCGImage(from: outputImage)
     }
     
+    @available(iOS 10.0, *)
     func testArgumentsEncoding_typeMismatch() throws {
         let kernelSource = """
         #include <metal_stdlib>
@@ -367,6 +369,7 @@ final class UtilitiesTests: XCTestCase {
         }
     }
     
+    @available(iOS 10.0, *)
     func testArgumentsEncoding_unsupportedType() throws {
         let kernelSource = """
         #include <metal_stdlib>

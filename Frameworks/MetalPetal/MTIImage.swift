@@ -177,18 +177,22 @@ extension MTIImage {
             cgImage = cg
             orientation = image.imageOrientation.cgImagePropertyOrientation
         } else {
-            let format: UIGraphicsImageRendererFormat
-            if #available(iOS 11.0, *) {
-                format = UIGraphicsImageRendererFormat.preferred()
+            if #available(iOS 10.0, *) {
+                let format: UIGraphicsImageRendererFormat
+                if #available(iOS 11.0, *) {
+                    format = UIGraphicsImageRendererFormat.preferred()
+                } else {
+                    format = UIGraphicsImageRendererFormat()
+                }
+                format.opaque = isOpaque
+                format.scale = image.scale
+                cgImage = UIGraphicsImageRenderer(size: image.size).image { _ in
+                    image.draw(at: .zero)
+                }.cgImage!
+                orientation = .up
             } else {
-                format = UIGraphicsImageRendererFormat()
+                fatalError()
             }
-            format.opaque = isOpaque
-            format.scale = image.scale
-            cgImage = UIGraphicsImageRenderer(size: image.size).image { _ in
-                image.draw(at: .zero)
-            }.cgImage!
-            orientation = .up
         }
         let options = MTICGImageLoadingOptions(colorSpace: colorSpace)
         self.init(cgImage: cgImage, orientation: orientation, options: options, isOpaque: isOpaque)
